@@ -36,7 +36,7 @@ Router.post('/login', function (req, res) {
                     res.status(200).send({ token: token, sucess: true, message: "authentication sucessful" });
                 }
                 else {
-                    res.send(400).json({
+                    res.status(400).send({
                         success: false,
                         message: 'Authentication failed! Please check the request'
                     });
