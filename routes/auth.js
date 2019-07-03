@@ -24,7 +24,7 @@ Router.post('/login', function (req, res) {
         if (err) {
             res.status(500).send("db error");
         }
-        else {
+        else if(data){
             data.comparePwd(body.password, function (ismatch) {
                 if (ismatch) {
                     let token = jwt.sign({ userId: data.userId },
@@ -42,6 +42,12 @@ Router.post('/login', function (req, res) {
                     });
                 }
             })
+        }
+        else{
+            res.status(400).send({
+                        success: false,
+                        message: 'Authentication failed! Please check the request'
+                    });
         }
     })
 
