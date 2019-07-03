@@ -38,7 +38,7 @@ Router.post('/login', function (req, res) {
                 else {
                     res.status(400).send({
                         success: false,
-                        message: 'Authentication failed! Please check the request'
+                        message: 'Authentication failed! password is wrong request'
                     });
                 }
             })
@@ -46,7 +46,7 @@ Router.post('/login', function (req, res) {
         else{
             res.status(400).send({
                         success: false,
-                        message: 'Authentication failed! Please check the request'
+                        message: 'Authentication failed! userId is not valid'
                     });
         }
     })
